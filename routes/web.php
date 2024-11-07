@@ -16,3 +16,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::prefix('users')->group(function() {
+    Route::post('/', [\App\Http\Controllers\Api\UserController::class, 'create'])->name('user-create');
+    Route::post('/{user_id}/score', [\App\Http\Controllers\Api\UserController::class, 'score'])->name('user-score');
+});
+Route::prefix('leaderboard')->group(function() {
+    Route::get('/top', [\App\Http\Controllers\Api\LeaderboardController::class, 'index'])->name('leaderboard');
+    Route::get('/rank/{user_id}', [\App\Http\Controllers\Api\LeaderboardController::class, 'rank'])->name('user-rank');
+});
+
