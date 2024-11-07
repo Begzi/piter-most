@@ -22,7 +22,7 @@ Route::prefix('users')->group(function() {
     Route::post('/{user_id}/score', [\App\Http\Controllers\Api\UserController::class, 'score'])->name('user-score');
 });
 Route::prefix('leaderboard')->group(function() {
-    Route::get('/top', [\App\Http\Controllers\Api\LeaderboardController::class, 'index'])->name('leaderboard');
-    Route::get('/rank/{user_id}', [\App\Http\Controllers\Api\LeaderboardController::class, 'rank'])->name('user-rank');
+    Route::get('/top', [\App\Http\Controllers\Api\BoardController::class, 'index'])->name('leaderboard');
+    Route::get('/rank/{user_id}', [\App\Http\Controllers\Api\BoardController::class, 'rank'])->name('user-rank');
 });
 
