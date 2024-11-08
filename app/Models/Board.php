@@ -10,7 +10,7 @@ class Board extends Model
     use HasFactory;
 
     protected $fillable = [
-        'scope',
+        'score',
         'user_id',
     ];
 
