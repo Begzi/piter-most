@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use App\Models\User;
+use App\Models\Board;
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,6 +15,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        // Создание 15 пользователей
+        User::factory(15)->create();
+
+        // Создание 25 записей к Board с ассоциацией к User
+        Board::factory(25)->create();
     }
 }
